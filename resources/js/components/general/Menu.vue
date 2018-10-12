@@ -34,8 +34,9 @@
     data() {
       return {
         menuOptions: [
-          {label: 'Home', id: 'home', icon: 'place'},
-          {label: 'Why', id: 'why', icon: 'why'}
+          {label: 'Map', id: 'home', icon: 'place'},
+          {label: 'Highscore', id: 'highscore', icon: 'stars'},
+          {label: 'Why', id: 'why', icon: 'help_outline'},
         ]
       }
     },
@@ -43,10 +44,13 @@
       selectMenuitem: function(item) {
         switch (item.id) {
         case "home":
-          this.$router.push('home');
+          this.$router.push('/home');
           break;
         case "why":
-          this.$router.push('why');
+          this.$router.push('/why');
+          break;
+        case "highscore":
+          this.$router.push('/highscore');
           break;
         }
       }

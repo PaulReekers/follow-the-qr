@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import home from './components/Home.vue'
 import code from './components/Code.vue'
 import why from './components/Why.vue'
+import highscore from './components/Highscore.vue'
 
 Vue.use(VueRouter)
 
@@ -28,6 +29,13 @@ const routes = [
     component: why,
     meta: {
       title: 'Why'
+    }
+  },{
+    path: '/highscore',
+    name: 'highscore',
+    component: highscore,
+    meta: {
+      title: 'Highscore'
     }
   }
 ];
