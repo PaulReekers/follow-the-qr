@@ -59,5 +59,10 @@
   }
 </script>
 
+<<<<<<< Updated upstream
 <style lang="scss">
 </style>
+=======
+<style>
+</style>
+>>>>>>> Stashed changes

@@ -1,11 +1,28 @@
 <template>
     <div id="code">
-      CODE {{ $route.params.id }}
+
+        <ui-textbox
+                disabled
+                icon="gps_fixed"
+                label="Your current location"
+                :placeholder=$route.params.id
+                v-model="gpsLocation"
+            ></ui-textbox>
     </div>
 </template>
 
 <script>
+    import { UiTextbox } from 'keen-ui';
+
     export default {
+            data() {
+                return {
+                    gpsLocation: '',
+                };
+            },
+            components: {
+                UiTextbox
+            }
     }
 </script>
 

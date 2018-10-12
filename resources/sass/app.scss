@@ -8,6 +8,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  min-height: 300px;
+}
 .navbar-laravel {
   background-color: #fff;
 }
