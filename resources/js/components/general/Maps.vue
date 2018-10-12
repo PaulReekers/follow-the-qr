@@ -34,6 +34,28 @@
             var loc = [];
             qr.locations.forEach(function(location){
               loc.push({lat: location.lat, lng: location.lng});
+
+              var latLng = new google.maps.LatLng(location.lat, location.lng);
+              var marker = new google.maps.Marker({
+                  position: latLng,
+                  optimized: false, //fixes markers flashing while bouncing
+                  icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 8,
+                    strokeColor: qr.color
+                  },
+              });
+
+              if (location.text) {
+                var infowindow = new google.maps.InfoWindow({
+                  content: location.text
+                });
+                marker.addListener('click', function() {
+                  infowindow.open(self.map, marker);
+                });
+              }
+
+              marker.setMap(self.map);
             });
 
             var line = new google.maps.Polyline({
