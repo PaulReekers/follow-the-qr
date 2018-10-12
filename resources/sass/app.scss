@@ -10,5 +10,7 @@
 
 .navbar-laravel {
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+#menu .ui-toolbar.is-raised{
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0.12), 0 0px 0px rgba(0, 0, 0, 0.2);
 }
