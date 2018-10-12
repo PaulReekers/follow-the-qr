@@ -1,16 +1,17 @@
 <template>
     <div id="menu">
-      <div id="logo">LOGO</div>
-      <div id="slogan">
-        Follow the QR
-      </div>
-      <div id="menu"></div>
+      <ui-toolbar></ui-toolbar>
     </div>
 </template>
 
 <script>
-    export default {
+  import { UiMenu, UiIconButton, UiToolbar } from 'keen-ui';
+
+  export default {
+    components: {
+      UiToolbar
     }
+  }
 </script>
 
 <style>

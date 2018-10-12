@@ -6,7 +6,7 @@
 </template>
 
 <script>
-
+  import 'keen-ui/dist/keen-ui.css';
   import topmenu from './general/Menu.vue'
 
   export default {
