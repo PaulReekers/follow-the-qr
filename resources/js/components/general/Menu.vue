@@ -1,9 +1,9 @@
 <template>
     <div id="menu">
-      <ui-toolbar>
+      <ui-toolbar class="navbar navbar-inverse navbar-expand-lg bg-dark">
         <div slot="icon">
           <ui-icon-button
-            color="black"
+            color="white"
             has-dropdown
             type="default"
             icon="menu"
@@ -21,7 +21,7 @@
           </ui-icon-button>
         </div>
         <div slot="default">
-          Follow the QR
+          <a id="logo" href="/">Follow the QR</a>
         </div>
       </ui-toolbar>
     </div>
@@ -36,7 +36,7 @@
         menuOptions: [
           {label: 'Map', id: 'home', icon: 'place'},
           {label: 'Highscore', id: 'highscore', icon: 'stars'},
-          {label: 'Why', id: 'why', icon: 'help_outline'},
+          {label: 'How it works', id: 'howitworks', icon: 'help_outline'},
         ]
       }
     },
@@ -46,8 +46,8 @@
         case "home":
           this.$router.push('/home');
           break;
-        case "why":
-          this.$router.push('/why');
+        case "howitworks":
+          this.$router.push('/howitworks');
           break;
         case "highscore":
           this.$router.push('/highscore');
@@ -62,11 +62,8 @@
     }
   }
 </script>
-
-<<<<<<< Updated upstream
-<style lang="scss">
-</style>
-=======
 <style>
+  a#logo{
+    color: white;
+  }
 </style>
->>>>>>> Stashed changes

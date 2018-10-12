@@ -16,7 +16,7 @@
                   </div>
                 </div>
                 <form class="form" v-if="!loading">
-                  <div class="card-header card-header-primary text-center">
+                  <div class="card-header card-header-primary text-center" v-bind:style="{background:qr.color}">
                     <h4 class="card-title">Great you are part of {{ qr.name }}</h4>
                   </div>
                   <p class="description text-center">{{ coordinates.lat }}, {{ coordinates.lat }}</p>
@@ -38,7 +38,7 @@
 
                   </div>
                   <div class="footer text-center">
-                    <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg" @click="save()">Add your location</a>
+                    <a href="#" class="btn btn-primary btn-wd btn-lg" @click="save()">Save</a>
                   </div>
                 </form>
               </div>
@@ -60,7 +60,7 @@
         error: false,
         code: false,
         coordinates: {},
-        location: false
+        location: false,
       };
     },
     mounted() {

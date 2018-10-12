@@ -24,11 +24,11 @@ const routes = [
       title: 'Code'
     }
   },{
-    path: '/why',
-    name: 'why',
+    path: '/howitworks',
+    name: 'howitworks',
     component: why,
     meta: {
-      title: 'Why'
+      title: 'How it works'
     }
   },{
     path: '/highscore',

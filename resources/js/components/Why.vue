@@ -10,7 +10,8 @@
                   </div>
                     <div class="card-body">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            Participate in the great QR competition, 10 QR codes are distributed in different ways. The QR that manages to travel the most kilometers has won.
+                            Can you find them all?
                         </p>
                     </div>
               </div>
