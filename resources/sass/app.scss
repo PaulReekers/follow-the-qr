@@ -6,11 +6,12 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import 'material-kit';
 
 body {
   min-height: 300px;
 }
+
 .navbar-laravel {
   background-color: #fff;
 }
