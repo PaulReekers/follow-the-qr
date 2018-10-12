@@ -27,28 +27,50 @@ class QrController extends Controller
     }
   }
 
+  public function updateLocation(Request $request, $id, $location)
+  {
+    $qr = Qr::where('code', '=', $id)->first();
+    if ($qr) {
+      $loc = Location::where('qr_id', '=', $qr->id)
+        ->where('id', '=', $location)->first();
+      if ($loc) {
+        $loc->text = $request->input('text');
+        $loc->save();
+        return $loc;
+      }
+    }
+
+    return response([
+        'error' => 'Missing',
+    ], 404);
+  }
+
   public function setLocation(Request $request, $id)
   {
     $qr = Qr::where('code', '=', $id)->first();
     if ($qr) {
-      $lat = $request->input('lat');
-      $lng = $request->input('lng');
+      $lat = round($request->input('lat'), 6);
+      $lng = round($request->input('lng'), 6);
 
       $ago = strtotime("-1 hours");
-      $locations = $qr->locations;
-      foreach ($locations as $location) {
-        if ($location->lat == $lat && $location->lng == $lng) {
-          return response([
-              'error' => 'Location already exists',
-          ], 404);
-        }
 
-        $dateFromDatabase = ($location->created_at->timestamp);
-        if ($dateFromDatabase >= $ago) {
-          return response([
-              'error' => 'Wait some longer ' . $dateFromDatabase." ".$ago,
-          ], 404);
-        }
+      $loc = Location::where('qr_id', '=', $qr->id)
+        ->where('lat', '=', $lat)
+        ->where('lng', '=', $lng)
+        ->first();
+      if ($loc) {
+        return response([
+          'error' => 'Already found',
+        ], 404);
+      }
+
+      $loc = Location::where('qr_id', '=', $qr->id)
+        ->where('created_at', '>=', date("Y-m-d H:i:s", $ago))
+        ->first();
+      if ($loc) {
+        return response([
+          'error' => 'Wait some longer',
+        ], 404);
       }
 
       $loc = new Location();

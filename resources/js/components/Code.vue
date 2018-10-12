@@ -15,7 +15,7 @@
                     {{ error }}
                   </div>
                 </div>
-                <form class="form" method="" action="" v-if="!loading">
+                <form class="form" v-if="!loading">
                   <div class="card-header card-header-primary text-center">
                     <h4 class="card-title">Great you are part of {{ qr.name }}</h4>
                   </div>
@@ -38,7 +38,7 @@
 
                   </div>
                   <div class="footer text-center">
-                    <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">Add your location</a>
+                    <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg" @click="save()">Add your location</a>
                   </div>
                 </form>
               </div>
@@ -59,7 +59,8 @@
         loading: true,
         error: false,
         code: false,
-        coordinates: {}
+        coordinates: {},
+        location: false
       };
     },
     mounted() {
@@ -67,6 +68,20 @@
       this.checkId();
     },
     methods: {
+      save: function() {
+        var self = this;
+        if (this.location && this.code && this.gpsDescription !== '') {
+          axios.post('/qr/' + this.code + '/location/' + this.location, {
+            text: this.gpsDescription
+          }).then(response => {
+            this.$store.dispatch('UPDATE_QR');
+            this.$router.push('/home');
+          }, (err) =>{
+            self.loading = true;
+            self.error = 'Not saved';
+          });
+        }
+      },
       checkId: function() {
         var self = this;
         axios.get('/qr/' + this.code).then(response => {
@@ -80,7 +95,7 @@
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.showPosition);
         } else {
-          self.error = 'Location could not be determined';
+          this.error = 'Location could not be determined';
         }
       },
       showPosition: function(position) {
@@ -92,9 +107,10 @@
           lng: this.coordinates.lng
         }).then(response => {
           this.loading = false;
+          this.location = response.data.id;
           this.$store.dispatch('UPDATE_QR');
         }, (err) => {
-          self.error = 'Not allowed';
+          this.error = 'Adding location is not allowed, try again later';
         });
       }
     },

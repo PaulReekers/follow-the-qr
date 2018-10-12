@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('qr/{id}/location/{location}', 'QrController@updateLocation');
 Route::post('qr/{id}/location', 'QrController@setLocation');
 Route::get('qr/all', 'QrController@getall');
 Route::get('qr/{id}', 'QrController@get');
