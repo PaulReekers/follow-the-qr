@@ -27,6 +27,19 @@ export default new Vuex.Store({
     },
     qrs: state => {
       return state.qrs;
+    },
+    lastLoc: state => {
+      var last = false;
+      var max = 0;
+      state.qrs.forEach(function(item){
+        item.locations.forEach(function(loc) {
+          if (loc.id > max) {
+            last = loc;
+            max = loc.id;
+          }
+        });
+      });
+      return last;
     }
   }
 });

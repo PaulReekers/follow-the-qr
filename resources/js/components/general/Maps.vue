@@ -12,11 +12,17 @@
     computed: {
       qrs() {
         return this.$store.getters.qrs;
+      },
+      lastLoc() {
+        return this.$store.getters.lastLoc;
       }
     },
     watch: {
       qrs() {
         this.loadMarkers();
+      },
+      lastLoc() {
+        this.updateLoc();
       }
     },
     mounted() {
@@ -27,6 +33,9 @@
       }
     },
     methods: {
+      updateLoc: function() {
+        this.map.setCenter(new google.maps.LatLng(this.lastLoc.lat,this.lastLoc.lng));
+      },
       loadMarkers: function() {
         var self = this;
         if (this.qrs.length > 0) {
@@ -101,7 +110,7 @@
         this.map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 51.368769, lng: 5.252832},
             options: mapOptions,
-            zoom: 10
+            zoom: 9
         });
         this.loadMarkers();
       }
