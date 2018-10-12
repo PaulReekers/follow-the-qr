@@ -39,6 +39,18 @@
         ]
       }
     },
+    methods: {
+      selectMenuitem: function(item) {
+        switch (item.id) {
+        case "home":
+          this.$router.push('home');
+          break;
+        case "why":
+          this.$router.push('why');
+          break;
+        }
+      }
+    },
     components: {
       UiToolbar,
       UiMenu,
