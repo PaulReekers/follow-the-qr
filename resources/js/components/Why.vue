@@ -1,6 +1,6 @@
 <template>
     <div id="why">
-      Why
+      <h1>Why did we start follow the QR</h1>
     </div>
 </template>
 

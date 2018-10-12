@@ -1,12 +1,18 @@
 <template>
     <div id="home">
-      HOME
+      <google-maps></google-maps>
     </div>
 </template>
 
 <script>
-    export default {
+
+  import GoogleMaps from './general/Maps.vue'
+
+  export default {
+    components: {
+      GoogleMaps
     }
+  }
 </script>
 
 <style>

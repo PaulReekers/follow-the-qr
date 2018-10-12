@@ -14,9 +14,10 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div id="app">
-            <example-component>
-        </div>
-            <script src="{{ mix('/js/app.js') }}"></script>
+        <div id="app"></div>
+        <script>
+            window.API_KEY = '{!! env("GOOGLE_API_KEY") !!}';
+        </script>
+        <script src="{{ mix('/js/app.js') }}"></script>
     </body>
 </html>
