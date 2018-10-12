@@ -11,7 +11,7 @@ class QrController extends Controller
 
   public function getall()
   {
-    return Qr::get();
+    return Qr::with('locations')->get();
   }
 
 }

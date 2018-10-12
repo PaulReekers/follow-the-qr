@@ -6,7 +6,17 @@
   export default {
     data() {
       return {
-        map: false,
+        map: false
+      }
+    },
+    computed: {
+      qrs() {
+        return this.$store.getters.qrs;
+      }
+    },
+    watch: {
+      qrs() {
+        this.loadMarkers();
       }
     },
     mounted() {
@@ -17,6 +27,26 @@
       }
     },
     methods: {
+      loadMarkers: function() {
+        var self = this;
+        if (this.qrs.length > 0) {
+          this.qrs.forEach(function(qr){
+            var loc = [];
+            qr.locations.forEach(function(location){
+              loc.push({lat: location.lat, lng: location.lng});
+            });
+
+            var line = new google.maps.Polyline({
+              path: loc,
+              geodesic: true,
+              strokeColor: qr.color,
+              strokeOpacity: 1.0,
+              strokeWeight: 2
+            });
+            line.setMap(self.map);
+          });
+        }
+      },
       hasGoogleObject: function() {
           return (typeof google === 'object' && typeof google.maps === 'object');
       },
@@ -51,6 +81,7 @@
             options: mapOptions,
             zoom: 10
         });
+        this.loadMarkers();
       }
     }
   }

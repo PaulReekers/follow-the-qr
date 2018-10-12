@@ -11,6 +11,7 @@
 
   export default {
     mounted() {
+      this.$store.dispatch('UPDATE_QR');
     },
     components: {
       topmenu
