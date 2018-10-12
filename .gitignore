@@ -7,9 +7,8 @@ bootstrap/compiled.php
 app/storage/
 
 # Laravel 5 & Lumen specific
-public/
-public/storage
-public/hot
+public
+!public/img/
 storage/*.key
 .env.*.php
 .env.php
