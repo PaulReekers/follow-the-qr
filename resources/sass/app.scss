@@ -8,8 +8,10 @@
 // Bootstrap
 @import 'material-kit';
 
-body {
+html, body {
   min-height: 300px;
+  width: 100%;
+  height: 100%;
 }
 
 .navbar-laravel {
