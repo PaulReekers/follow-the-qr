@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import home from './components/Home.vue'
 import code from './components/Code.vue'
+import why from './components/Why.vue'
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,13 @@ const routes = [
     component: code,
     meta: {
       title: 'Code'
+    }
+  },{
+    path: '/why',
+    name: 'why',
+    component: why,
+    meta: {
+      title: 'Why'
     }
   }
 ];

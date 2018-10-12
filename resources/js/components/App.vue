@@ -1,12 +1,19 @@
 <template>
-  <router-view class="router-main-view">
-  </router-view>
+  <div>
+    <topmenu></topmenu>
+    <router-view class="router-main-view"></router-view>
+  </div>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+
+  import topmenu from './general/Menu.vue'
+
+  export default {
+    mounted() {
+    },
+    components: {
+      topmenu
     }
+  }
 </script>
